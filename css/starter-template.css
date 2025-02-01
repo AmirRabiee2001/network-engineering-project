@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap");
+
+body {
+  font-family: "Vazirmatn", sans-serif;
+  }
+
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.text-primary {
+  color: #333 !important;
+}
+
+.fixed-top {
+  position: relative;
+}
+
+.sidebar-sticky {
+  text-align: left;
+}
+
+a {
+  color: #555 !important;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 80%;
+  }
+}
+
+.blog-post {
+  direction: rtl;
+  text-align: right;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+.pagination .page-item .page-link {
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+  background-color: #fff;
+  margin: 0 2px;
+  border-radius: 4px;
+}
+
+.pagination .page-item.active .page-link {
+  color: #fff !important;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #adb5bd;
+  background-color: #fff;
+  border-color: #dee2e6;
+}
+
+.pagination .page-item .page-link:hover {
+  color: #495057 !important;
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+}
