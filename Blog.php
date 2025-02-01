@@ -70,7 +70,6 @@
                 if ($page < 1) {
                     $offset = 0;
                 } else {
-                    //offset = (page - 1) * itemsPerPage + 1
                     $offset = ($page - 1) * 10 + 1;
                 }
 
@@ -126,7 +125,7 @@
             ?>
         </div>
 
-        <nav aria-label="Page navigation example">
+        <nav>
             <ul class="pagination  justify-content-center">
                 <?php
                 if (isset($_GET['page'])) {

@@ -12,7 +12,7 @@
     <meta name="author" content="">
     <link rel="icon" href="images/favicon.ico">
 
-    <title>Comments</title>
+    <title>نظرات</title>
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -23,10 +23,10 @@
 
 <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="Blog.php?page=1">News</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="Blog.php?page=1">خبرنامه</a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="SignOut.php">Sign out</a>
+                <a class="nav-link" href="SignOut.php">خارج شوید</a>
             </li>
         </ul>
     </nav>
@@ -63,7 +63,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="Comments.php">
                                 <span data-feather="bar-chart-2"></span>
-                                Comments
+                                نظرات
                             </a>
                         </li>
                     </ul>
@@ -78,7 +78,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="Blog.php?page=1">
                                 <span data-feather="file-text"></span>
-                                Live Blog
+                                بلاگ زنده
                             </a>
                         </li>
                     </ul>
@@ -87,7 +87,7 @@
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 pt-lg-0">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h1 class="h2">Un-Approved Comments</h1>
+                    <h1 class="h2">نظرات تایید نشده</h1>
                 </div>
 
                 <div>
@@ -101,12 +101,12 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Username</th>
-                                <th>Date & Time</th>
-                                <th>Comment</th>
-                                <th>Approve</th>
-                                <th>Delete Comment</th>
-                                <th>Details</th>
+                                <th>نام کاربر</th>
+                                <th>تاریخ</th>
+                                <th>متن نظر</th>
+                                <th>تایید</th>
+                                <th>حذف نظر</th>
+                                <th>جزییات</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -127,17 +127,17 @@
 
                                 echo '<td>'
                                     . '<a href="./operation/ApproveComment.php?id=' . $result[$i]['id'] . '">'
-                                    . '<button class="btn btn-success btn-block" type="submit" name="btnApprove">Approve</button>'
+                                    . '<button class="btn btn-success btn-block" type="submit" name="btnApprove">تایید</button>'
                                     . '</a>' . '</td>';
 
                                 echo '<td>'
                                     . '<a href="./operation/DeleteComment.php?id=' . $result[$i]['id'] . '">'
-                                    . '<button class="btn btn-danger btn-block" type="submit" name="btnDelete">Delete</button>'
+                                    . '<button class="btn btn-danger btn-block" type="submit" name="btnDelete">حذف</button>'
                                     . '</a>' . '</td>';
 
                                 echo '<td>'
                                     . '<a href="FullPost.php?id=' . $result[$i]['id'] . '">'
-                                    . '<button class="btn btn-primary" type="submit" name="btnPreview">Live Preview</button>'
+                                    . '<button class="btn btn-primary" type="submit" name="btnPreview">مشاهده</button>'
                                     . '</a>' . '</td>';
 
                                 echo '</tr>';
@@ -152,7 +152,7 @@
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 pt-lg-0">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h1 class="h2">Approved Comments</h1>
+                    <h1 class="h2">نظرات تایید شده</h1>
                 </div>
 
                 <div class="table-responsive">
@@ -160,13 +160,13 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Username</th>
-                                <th>Date & Time</th>
-                                <th>Comment</th>
-                                <th>Approve By</th>
-                                <th>Revert Approve</th>
-                                <th>Delete Comment</th>
-                                <th>Details</th>
+                                <th>نام کاربر</th>
+                                <th>تاریخ</th>
+                                <th>کامنت</th>
+                                <th>تایید شده توسط</th>
+                                <th>بازپس گیری تایید</th>
+                                <th>حذف نظر</th>
+                                <th>جزییات</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -188,17 +188,17 @@
 
                                 echo '<td>'
                                     . '<a href="./operation/UnApproveComment.php?id=' . $result[$i]['id'] . '">'
-                                    . '<button class="btn btn-warning btn-block" type="submit" name="btnUnApprove">Un-Approve</button>'
+                                    . '<button class="btn btn-warning btn-block" type="submit" name="btnUnApprove">بازپس گیری تایید</button>'
                                     . '</a>' . '</td>';
 
                                 echo '<td>'
                                     . '<a href="./operation/DeleteComment.php?id=' . $result[$i]['id'] . '">'
-                                    . '<button class="btn btn-danger btn-block" type="submit" name="btnDelete">Delete</button>'
+                                    . '<button class="btn btn-danger btn-block" type="submit" name="btnDelete">حذف</button>'
                                     . '</a>' . '</td>';
 
                                 echo '<td>'
                                     . '<a href="FullPost.php?id=' . $result[$i]['id'] . '">'
-                                    . '<button class="btn btn-primary" type="submit" name="btnPreview">Live Preview</button>'
+                                    . '<button class="btn btn-primary" type="submit" name="btnPreview">تایید زنده</button>'
                                     . '</a>' . '</td>';
 
                                 echo '</tr>';

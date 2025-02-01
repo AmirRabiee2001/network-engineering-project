@@ -134,9 +134,9 @@ class DBOperation
 
     public function selectPostKey($key, $value, $offset)
     {
-        if($key == 'author'){
+        if ($key == 'author') {
             $sql = 'SELECT * FROM `posts` WHERE `author` = ? ORDER BY `id` DESC LIMIT ?, 10;';
-        }elseif($key == 'category'){
+        } elseif ($key == 'category') {
             $sql = 'SELECT * FROM `posts` WHERE `category` = ? ORDER BY `id` DESC LIMIT ?, 10;';
         }
 
@@ -170,16 +170,15 @@ class DBOperation
 
     public function countPosts($key, $value)
     {
-        if($key == 'author'){
+        if ($key == 'author') {
             $sql = 'SELECT COUNT(*) FROM `posts` WHERE `author` = ? ;';
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $value, PDO::PARAM_STR);
-
-        }elseif($key == 'category'){
+        } elseif ($key == 'category') {
             $sql = 'SELECT COUNT(*) FROM `posts` WHERE `category` = ? ;';
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $value, PDO::PARAM_STR);
-        }elseif($key == 'search'){
+        } elseif ($key == 'search') {
             $sql = 'SELECT COUNT(*) FROM `posts` WHERE `title` LIKE ? OR `datetime` LIKE ? OR `category` LIKE ? OR `author` LIKE ? OR `post` LIKE ?';
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $value, PDO::PARAM_STR);
@@ -187,7 +186,7 @@ class DBOperation
             $stmt->bindParam(3, $value, PDO::PARAM_STR);
             $stmt->bindParam(4, $value, PDO::PARAM_STR);
             $stmt->bindParam(5, $value, PDO::PARAM_STR);
-        }else{
+        } else {
             $sql = 'SELECT COUNT(*) FROM `posts` ;';
             $stmt = $this->conn->prepare($sql);
         }
@@ -317,13 +316,12 @@ class DBOperation
 
         $result = $stmt->fetchAll();
 
-        if(empty($result)) {
+        if (empty($result)) {
 
             echo '<pre>';
             $stmt->debugDumpParams();
             echo '</pre>';
             return array(false, 'Invalid username or password');
-
         } else {
             $stmt->debugDumpParams();
 

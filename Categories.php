@@ -78,6 +78,15 @@ if (isset($_POST['btnAddCategory'])) {
                             <a class="nav-link" href="Comments.php">
                                 <span data-feather="bar-chart-2"></span>
                                 نظرات
+                                <?php
+                                $db = new dbOperation();
+                                $result = $db->countComments();
+
+                                echo '<button type="button" class="btn btn-warning btn-sm float-right">';
+                                echo $result;
+                                echo '</button>';
+
+                                ?>
                             </a>
                         </li>
                     </ul>

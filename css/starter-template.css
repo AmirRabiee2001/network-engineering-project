@@ -2,7 +2,7 @@
 
 body {
   font-family: "Vazirmatn", sans-serif;
-  }
+}
 
 .starter-template {
   padding: 3rem 1.5rem;
@@ -14,7 +14,7 @@ body {
 }
 
 .fixed-top {
-  position: relative;
+  position: sticky;
 }
 
 .sidebar-sticky {

@@ -42,10 +42,10 @@ if (isset($_POST['btnAddAdmin'])) {
 
 <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="Blog.php?page=1">News</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="Blog.php?page=1">خبرنامه</a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="SignOut.php">Sign out</a>
+                <a class="nav-link" href="SignOut.php">خارج شوید</a>
             </li>
         </ul>
     </nav>
@@ -82,7 +82,16 @@ if (isset($_POST['btnAddAdmin'])) {
                         <li class="nav-item">
                             <a class="nav-link" href="Comments.php">
                                 <span data-feather="bar-chart-2"></span>
-                                Comments
+                                نظرات
+                                <?php
+                                $db = new dbOperation();
+                                $result = $db->countComments();
+
+                                echo '<button type="button" class="btn btn-warning btn-sm float-right">';
+                                echo $result;
+                                echo '</button>';
+
+                                ?>
                             </a>
                         </li>
                     </ul>
@@ -97,7 +106,7 @@ if (isset($_POST['btnAddAdmin'])) {
                         <li class="nav-item">
                             <a class="nav-link" href="Blog.php?page=1">
                                 <span data-feather="file-text"></span>
-                                Live Blog
+                                بلاگ زنده
                             </a>
                         </li>
                     </ul>
@@ -116,30 +125,29 @@ if (isset($_POST['btnAddAdmin'])) {
                     </div>
                     <form class="needs-validation " novalidate method="post" action="Admins.php">
                         <div class="mb-3">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" placeholder="username" name="txtUsername">
+                            <label for="username">نام کاربری</label>
+                            <input type="text" class="form-control" id="username" placeholder="" name="txtUsername">
                             <div class="invalid-feedback">
-                                Please enter a valid name.
+                                نام معتبر وارد کنید
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="password"
+                            <label for="password">رمز عبور</label>
+                            <input type="password" class="form-control" id="password" placeholder=""
                                 name="txtPassword">
                             <small id="passwordHelpBlock" class="form-text text-muted">
-                                Your password must be 8-20 characters long, contain letters and numbers, and must not
-                                contain spaces, special characters, or emoji.
+                                پسورد باید بین 8 تا 10 کاراکتر باشد و شامل حروف و اعداد خاص نباشد
                             </small>
                         </div>
                         <div class="mb-3">
-                            <label for="confirmPassword">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirmPassword" placeholder="confirm password"
+                            <label for="confirmPassword">تکرار رمز عبور</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder=""
                                 name="txtConfirmPassword">
                             <div class="invalid-feedback">
-                                Please enter a valid password.
+                                رمز معتبر وارد کنید
                             </div>
                         </div>
-                        <button class="btn btn-success btn-lg btn-block" type="submit" name="btnAddAdmin">Add دسته بندی
+                        <button class="btn btn-success btn-lg btn-block" type="submit" name="btnAddAdmin">اضافه کردن ادمین
                         </button>
                     </form>
                 </div>
@@ -150,10 +158,10 @@ if (isset($_POST['btnAddAdmin'])) {
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Date & Time</th>
-                                <th>Admin Name</th>
-                                <th>Added By</th>
-                                <th>Action</th>
+                                <th>تاریخ</th>
+                                <th>نام ادمین</th>
+                                <th>اضافه شده توسط</th>
+                                <th>عملیات</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -171,7 +179,7 @@ if (isset($_POST['btnAddAdmin'])) {
                                 echo '<td>' . $result[$i]['username'] . '</td>';
                                 echo '<td>' . $result[$i]['added_by'] . '</td>';
                                 echo '<td>' . '<a href="operation/DeleteAdmin.php?id=' . $result[$i]['id'] . '">'
-                                    . '<button class="btn btn-danger btn-block" type="submit" name="btnDeleteAdmin">Delete</button>'
+                                    . '<button class="btn btn-danger btn-block" type="submit" name="btnDeleteAdmin">حذف</button>'
                                     . '</a>' . '</td>';
                                 echo '</tr>';
                             }
