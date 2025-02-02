@@ -10,10 +10,10 @@ if (isset($_GET["id"])) {
     $db = new DBOperation();
 
     if ($db->deleteComment($id)) {
-        $_SESSION['successMessage'] = 'comment deleted successfully';
+        $_SESSION['successMessage'] = 'نظر با موفقیت حذف شد';
         header('Location: ' . './../Comments.php');
     } else {
-        $_SESSION['errorMessage'] = 'something went wrong';
+        $_SESSION['errorMessage'] = 'مشکلی بوجود آمد';
         header('Location: ' . './../Comments.php');
     }
 }

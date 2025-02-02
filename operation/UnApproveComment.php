@@ -11,10 +11,10 @@ if (isset($_GET["id"])) {
     $db = new DBOperation();
 
     if ($db->approveComment($status, $id)) {
-        $_SESSION['successMessage'] = 'comment unapproved successfully';
+        $_SESSION['successMessage'] = 'تایید نظر با موفقیت گرفته شد';
         header('Location: ' . './../Comments.php');
     } else {
-        $_SESSION['errorMessage'] = 'something went wrong';
+        $_SESSION['errorMessage'] = 'مشکلی بوجود آمد';
         header('Location: ' . './../Comments.php');
     }
 }

@@ -17,6 +17,10 @@ body {
   position: sticky;
 }
 
+.pagination {
+  direction: rtl;
+}
+
 .sidebar-sticky {
   text-align: left;
 }

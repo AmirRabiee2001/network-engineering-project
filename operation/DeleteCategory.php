@@ -10,10 +10,10 @@ if (isset($_GET["id"])) {
     $db = new DBOperation();
 
     if ($db->deleteCategory($id)) {
-        $_SESSION['successMessage'] = 'دسته بندی deleted successfully';
+        $_SESSION['successMessage'] = 'دسته بندی با موفقیت حذف شد';
         header('Location: ' . './../categories.php');
     } else {
-        $_SESSION['errorMessage'] = 'something went wrong';
+        $_SESSION['errorMessage'] = 'مشکلی بوجود آمد';
         header('Location: ' . './../categories.php');
     }
 }

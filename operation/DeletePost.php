@@ -10,10 +10,10 @@ if (isset($_GET["id"])) {
     $db = new DBOperation();
 
     if ($db->deletePost($id)) {
-        $_SESSION['successMessage'] = 'post deleted successfully';
+        $_SESSION['successMessage'] = 'مطلب با موفقیت حذف شد';
         header('Location: ' . './../dashboard.php');
     } else {
-        $_SESSION['errorMessage'] = 'something went wrong';
+        $_SESSION['errorMessage'] = 'مشکلی بوجود آمد';
         header('Location: ' . './../dashboard.php');
     }
 }

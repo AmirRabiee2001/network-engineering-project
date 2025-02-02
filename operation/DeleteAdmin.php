@@ -10,10 +10,10 @@ if (isset($_GET["id"])) {
     $db = new DBOperation();
 
     if ($db->deleteAdmin($id)) {
-        $_SESSION['successMessage'] = 'Admin deleted successfully';
+        $_SESSION['successMessage'] = 'ادمین با موفقیت حذف شد';
         header('Location: ' . './../Admins.php');
     } else {
-        $_SESSION['errorMessage'] = 'something went wrong';
+        $_SESSION['errorMessage'] = 'مشکلی بوجود آمد';
         header('Location: ' . './../Admins.php');
     }
 }

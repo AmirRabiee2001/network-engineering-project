@@ -12,9 +12,8 @@ function dateTime()
 function confirmLogin()
 {
     if (isset($_SESSION['adminID'])) {
-
     } else {
-        $_SESSION['errorMessage'] = 'You Need To Login First';
+        $_SESSION['errorMessage'] = 'ابتدا وارد شوید';
 
         header("Location:Login.php");
         exit();
